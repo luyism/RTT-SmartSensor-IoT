@@ -15,8 +15,6 @@ The **RTT-SmartSensor-IoT** is a compact IoT project based on the StarFire One d
 3. **Mobile App Remote Control:**
    - Develops a custom mobile application for real-time monitoring of sensor data and sending control commands.
    - Enables users to remotely change the color mode of the LED matrix, switch LED states, and toggle the buzzer from the mobile app.
-4. **LVGL User Interface:**
-   - Develops a graphical user interface using LVGL to display current sensor readings and control settings directly on the development board's display.
 
 This project, though simple, demonstrates the fundamental concepts of combining hardware, software, and cloud services for environmental monitoring and control, providing a practical and easy-to-understand solution.
 
