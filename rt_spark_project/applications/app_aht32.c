@@ -1,7 +1,5 @@
-#include <board.h>
-#include <rtthread.h>
-#include <drv_gpio.h>
-#include <rtdevice.h>
+#include "app_head.h"
+
 #include "aht10.h"
 
 #define LOG_TAG              "app_aht21"
@@ -19,35 +17,52 @@ static rt_thread_t thread1 = RT_NULL;
 rt_mq_t mq_hum = RT_NULL;
 rt_mq_t mq_tem = RT_NULL;
 
+// 新建信号量，用于线程创建成功后的回调启动mqtt连接
+rt_sem_t aht32_connect_sem = RT_NULL;
+
+
 /* 定义一个线程入口 */
-static void thread1_entry(void *parameter)
+static void thread_aht10_entry(void *parameter)
 {
+    // 释放信号量
+    rt_sem_release(aht32_connect_sem);
+
     while (1)
     {
         /* 读取湿度 */
         humidity = aht10_read_humidity(dev);
         // LOG_D("humidity   : %d.%d %%", (int)humidity, (int)(humidity * 10) % 10);
-        rt_mq_send(mq_hum, &humidity, sizeof(humidity));
+        rt_mq_urgent(mq_hum, &humidity, sizeof(humidity));
 
         /* 读取温度 */
         temperature = aht10_read_temperature(dev);
         // LOG_D("temperature: %d.%d", (int)temperature, (int)(temperature * 10) % 10);
-        rt_mq_send(mq_tem, &temperature, sizeof(temperature));
-        rt_thread_mdelay(500);
+        rt_mq_urgent(mq_tem, &temperature, sizeof(temperature));
+        rt_thread_mdelay(200);
     }
 }
 
 
 
-static int app2_aht21_example(void)
+void app2_aht21_example(void)
 {
+    // 提示信息
+    rt_kprintf("creating aht21 thread\n");
+
+    // 初始化信号量
+    aht32_connect_sem = rt_sem_create("aht32_sem", 0, RT_IPC_FLAG_FIFO);
+    if (aht32_connect_sem == RT_NULL)
+    {
+        rt_kprintf("create aht32_connect_sem failed\n");
+        return;
+    }
 
     /* 初始化 aht10 */
     dev = aht10_init(i2c_bus_name);
     if (dev == RT_NULL)
     {
         LOG_E(" The sensor initializes failure");
-        return 0;
+        return;
     }
 
     // 初始化消息队列
@@ -55,13 +70,16 @@ static int app2_aht21_example(void)
     mq_tem = rt_mq_create("mq_tem", 10, sizeof(temperature), RT_IPC_FLAG_FIFO);
 
     // 创建线程
-    thread1 = rt_thread_create("thread1", thread1_entry, RT_NULL, 1024, 25, 10);
+    thread1 = rt_thread_create("thread_aht10", thread_aht10_entry, RT_NULL, 1024, 25, 10);
     if (thread1 != RT_NULL)
     {
         rt_thread_startup(thread1);
+        rt_kprintf("creating aht21 rt_thread_startup\n");
     }
-
-    return RT_EOK;
+    else
+    {
+        LOG_E("thread1 create failed");
+    }
 }
 
 /* 导出到 msh 命令列表中 */

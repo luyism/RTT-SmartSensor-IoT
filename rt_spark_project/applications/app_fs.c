@@ -1,3 +1,5 @@
+#if 0
+
 //记得在menuconfig中开启支持旧版本功能（Support legacy version）
 #include <board.h>
 #include <rtthread.h>
@@ -163,3 +165,5 @@ void app4_write_data(void)
 
 // 导出命令
 MSH_CMD_EXPORT(app4_write_data, write_data_thread);
+
+#endif

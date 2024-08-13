@@ -141,6 +141,7 @@ static int matrix_init(void)
 
     rt_pin_mode(LED_MATRIX_EN_PIN, PIN_MODE_OUTPUT);
     rt_pin_write(LED_MATRIX_EN_PIN, PIN_LOW);
+    rt_thread_mdelay(100);
     led_matrix_rst();
     return RT_EOK;
 

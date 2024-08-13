@@ -66,7 +66,6 @@
 #define RT_USING_USER_MAIN
 #define RT_MAIN_THREAD_STACK_SIZE 2048
 #define RT_MAIN_THREAD_PRIORITY 10
-#define RT_USING_LEGACY
 #define RT_USING_MSH
 #define RT_USING_FINSH
 #define FINSH_USING_MSH
@@ -91,31 +90,9 @@
 #define RT_USING_DFS_V1
 #define DFS_FILESYSTEMS_MAX 4
 #define DFS_FILESYSTEM_TYPES_MAX 4
-#define RT_USING_DFS_ELMFAT
-
-/* elm-chan's FatFs, Generic FAT Filesystem Module */
-
-#define RT_DFS_ELM_CODE_PAGE 437
-#define RT_DFS_ELM_WORD_ACCESS
-#define RT_DFS_ELM_USE_LFN_3
-#define RT_DFS_ELM_USE_LFN 3
-#define RT_DFS_ELM_LFN_UNICODE_0
-#define RT_DFS_ELM_LFN_UNICODE 0
-#define RT_DFS_ELM_MAX_LFN 255
-#define RT_DFS_ELM_DRIVES 2
-#define RT_DFS_ELM_MAX_SECTOR_SIZE 4096
-#define RT_DFS_ELM_REENTRANT
-#define RT_DFS_ELM_MUTEX_TIMEOUT 3000
-/* end of elm-chan's FatFs, Generic FAT Filesystem Module */
 #define RT_USING_DFS_DEVFS
 #define RT_USING_DFS_ROMFS
 /* end of DFS: device virtual file system */
-#define RT_USING_FAL
-#define FAL_DEBUG_CONFIG
-#define FAL_DEBUG 1
-#define FAL_PART_HAS_TABLE_CFG
-#define FAL_USING_SFUD_PORT
-#define FAL_USING_NOR_FLASH_DEV_NAME "norflash0"
 
 /* Device Drivers */
 
@@ -396,6 +373,13 @@
 
 /* LVGL: powerful and easy-to-use embedded GUI library */
 
+#define PKG_USING_LVGL
+#define PKG_LVGL_THREAD_PRIO 20
+#define PKG_LVGL_THREAD_STACK_SIZE 4096
+#define PKG_LVGL_DISP_REFR_PERIOD 5
+#define PKG_LVGL_USING_DEMOS
+#define PKG_LVGL_USING_V080311
+#define PKG_LVGL_VER_NUM 0x080311
 /* end of LVGL: powerful and easy-to-use embedded GUI library */
 
 /* u8g2: a monochrome graphic library */
@@ -459,6 +443,8 @@
 
 #define PKG_USING_AHT10
 #define PKG_USING_AHT10_LATEST_VERSION
+#define PKG_USING_AP3216C
+#define PKG_USING_AP3216C_LATEST_VERSION
 /* end of sensors drivers */
 
 /* touch drivers */
@@ -542,13 +528,11 @@
 /* Onboard Peripheral Drivers */
 
 #define BSP_USING_USB_TO_USART
-#define BSP_USING_SPI_FLASH
-#define BSP_USING_FS
-#define BSP_USING_FLASH_FATFS
-#define BSP_USING_FLASH_FS_AUTO_MOUNT
-#define BSP_USING_FAL
+#define BSP_USING_SRAM
+#define BSP_USING_ONBOARD_LED_MATRIX
 #define BSP_USING_RW007_WLAN
 #define BSP_USING_AHT21
+#define BSP_USING_AP3216C
 /* end of Onboard Peripheral Drivers */
 
 /* On-chip Peripheral Drivers */
@@ -556,13 +540,21 @@
 #define BSP_USING_GPIO
 #define BSP_USING_UART
 #define BSP_USING_UART1
+#define BSP_USING_PWM
+#define BSP_USING_PWM3
+#define BSP_USING_PWM3_CH2
 #define BSP_USING_ON_CHIP_FLASH
 #define BSP_USING_SPI
 #define BSP_USING_SPI2
 #define BSP_USING_I2C
+#define BSP_USING_I2C2
+#define BSP_I2C2_SCL_PIN 81
+#define BSP_I2C2_SDA_PIN 80
 #define BSP_USING_I2C3
 #define BSP_I2C3_SCL_PIN 64
 #define BSP_I2C3_SDA_PIN 65
+#define BSP_USING_EXT_FMC_IO
+#define BSP_USING_FMC
 /* end of On-chip Peripheral Drivers */
 
 /* Board extended module Drivers */
