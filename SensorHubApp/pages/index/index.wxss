@@ -1,0 +1,139 @@
+.head_box {
+    display: flex;
+    justify-content: left;
+    padding-top: 100rpx;
+    padding-left: 20rpx;
+}
+.head_box>image {
+    width: 100rpx;
+    height: 100rpx;
+}
+.head_box>view {
+    margin-left: 30rpx;
+    font-size: 38rpx;
+    font-weight: 600;
+    line-height: 100rpx;
+}
+.weather_box {
+    height: 280rpx;
+    margin: 32rpx 32rpx 0;
+    box-shadow: 0 8rpx 20rpx 0 rgba(0, 0, 0, 0.3);
+    border-radius: 32rpx;
+}
+
+.welcome_test {
+    padding-top: 15rpx;
+    font-size: 28rpx;
+    text-align: center;
+    color: saddlebrown;
+}
+
+.weather_flex {
+    display: flex;
+}
+
+.w50 {
+    width: 50%;
+}
+
+.location_text {
+    margin-top: 28rpx;
+    font-size: 30rpx;
+}
+
+.temperature_text {
+    margin-top: 10rpx;
+    font-size: 80rpx;
+}
+
+.mqtt_box {
+    height: 120rpx;
+    margin: 32rpx 32rpx 0;
+    display: flex;
+    justify-content: space-between;
+    font-size: 36rpx;
+    font-weight: 600;
+    line-height: 120rpx;
+    padding: 0 20rpx;
+    box-shadow: 0 8rpx 20rpx 0 rgba(0, 0, 0, 0.3);
+    border-radius: 32rpx;    
+}
+.btn_style{
+    margin: 40rpx 0;
+    display: flex;
+    justify-content: space-around;
+}
+.van-button{
+    width: 250rpx;
+}
+.sub_text{
+    margin-left: 30rpx;
+}
+.sensor-system-title{
+    margin: 30rpx 0 30rpx 30rpx;
+    font-size: 36rpx;
+    font-weight: 600;
+
+}
+.sensor-system{
+    margin: 0 0 32rpx 32rpx;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.system-info{
+    display: flex;
+    width: 320rpx;
+    height: 200rpx;
+    box-shadow: 0 8rpx 20rpx 0 rgba(0, 0, 0, 0.3);
+    border-radius: 32rpx;    
+    background-color: white;
+    margin: 0 30rpx 23rpx 0;
+}
+.sensors-system-box1{
+    margin: 0 0 30rpx 20rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80rpx;
+}
+.sensors-system-box2>view{
+    margin-top: 10rpx;
+    margin-left: 30rpx;
+    width: 160rpx;
+}
+.other-devices-title{
+    margin: 0 0 30rpx 30rpx;
+    font-size: 36rpx;
+    font-weight: 600;
+}
+.other-devices{
+    height: 100rpx;
+    line-height: 100rpx;
+    margin: 32rpx 32rpx 0;
+    box-shadow: 0 8rpx 20rpx 0 rgba(0, 0, 0, 0.3);
+    border-radius: 32rpx;   
+    background-color: white;
+}
+
+.ledn-devices{
+    height: 240rpx;
+    margin: 32rpx 32rpx 0;
+    box-shadow: 0 8rpx 20rpx 0 rgba(0, 0, 0, 0.3);
+    border-radius: 32rpx;   
+    background-color: white;
+}
+.ledn-devices-title{
+    height: 100rpx;
+    line-height: 100rpx;
+}
+.ledn-control{
+    display: flex;
+    justify-content: space-between;
+
+    height: 100rpx;
+    line-height: 100rpx;
+    margin: 0 32rpx  38rpx;
+}
+
+
