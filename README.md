@@ -201,7 +201,7 @@ git clone https://gitee.com/RT-Thread-Studio-Mirror/sdk-bsp-stm32f407-spark.git
 
 点击编辑草稿，添加自定义功能
 
-![image-20240813005613006](C:/Users/nie/AppData/Roaming/Typora/typora-user-images/image-20240813005613006.png)
+![image-20240813005613006](image/image-20240813005613006.png)
 
 ![image-20240813005718894](image/image-20240813005718894.png)
 
@@ -1278,9 +1278,9 @@ https://vant-ui.github.io/vant-weapp/#/quickstart
 
 https://lbs.amap.com/
 
-![image-20240813021334606](C:/Users/nie/AppData/Roaming/Typora/typora-user-images/image-20240813021334606.png)
+![image-20240813021334606](image/image-20240813021334606.png)
 
-![image-20240813021429941](C:/Users/nie/AppData/Roaming/Typora/typora-user-images/image-20240813021429941.png)
+![image-20240813021429941](image/image-20240813021429941.png)
 
 然后将KEY粘贴到小程序如下位置：
 
